@@ -2,6 +2,7 @@
 #include  <iostream>
 #include <cstdint>
 #include  <fstream>
+#include <vector>
 #include  <locale>
 #include  <cstdlib>
 #include  "tree.h"
