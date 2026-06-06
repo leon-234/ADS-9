@@ -1,5 +1,6 @@
 // Copyright 2022 NNTU-CS
 #include  <iostream>
+#include <cstdint>
 #include  <fstream>
 #include  <locale>
 #include  <cstdlib>
@@ -14,7 +15,7 @@ static void dfsAll(
 
     if (node->children.empty()) {
         result.push_back(current);
-    }else {
+    } else {
         for (auto child : node->children)
             dfsAll(child, current, result);
     }
@@ -36,8 +37,8 @@ std::vector<char> getPerm1(PMTree& tree, int num) {
     return perms[num - 1];
 }
 
-static long long fact(int n) {
-    long long res = 1;
+int64_t fact(int n) {
+    int64_t res = 1;
     for (int i = 2; i <= n; i++)
         res *= i;
     return res;
@@ -45,7 +46,8 @@ static long long fact(int n) {
 
 std::vector<char> getPerm2(PMTree& tree, int num) {
     int n = tree.size();
-    long long total = fact(n);
+    int64_t total = fact(n);
+
     if (num < 1 || num > total)
         return {};
     num--;
@@ -53,7 +55,7 @@ std::vector<char> getPerm2(PMTree& tree, int num) {
     std::vector<char> result;
     int remain = n;
     while (remain > 0) {
-        long long block = fact(remain - 1);
+        int64_t block = fact(remain - 1);
         int childIndex = num / block;
         if (childIndex >= current->children.size())
             return {};
