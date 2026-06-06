@@ -34,7 +34,7 @@ class PMTree {
     }
 
  public:
-    PMTree(const std::vector<char>& elems) {
+    explicit PMTree(const std::vector<char>& elems) {
         alphabetSize = elems.size();
         root = new Node();
         build(root, elems);
