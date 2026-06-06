@@ -61,7 +61,7 @@ void experiment() {
                 (finish - start).count();
         }
         tPerm2 /= TESTS;
-        tPerm2 /= 1000000.0; 
+        tPerm2 /= 1000000.0;
         out << n << " "
             << tAll << " "
             << tPerm1 << " "
