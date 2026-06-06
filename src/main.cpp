@@ -1,14 +1,17 @@
 // Copyright 2022 NNTU-CS
 #include <iostream>
 #include <chrono>
+#include <cstdint>
 #include <fstream>
 #include <random>
+#include <vector>
 #include "tree.h"
 
-long long fact(int n) {
-    long long r = 1;
+int64_t fact(int n) {
+    int64_t r = 1;
     for (int i = 2; i <= n; i++)
         r *= i;
+
     return r;
 }
 
@@ -23,7 +26,7 @@ void experiment() {
         for (int i = 0; i < n; i++)
             alphabet.push_back('A' + i);
         PMTree tree(alphabet);
-        std::uniform_int_distribution<long long>
+        std::uniform_int_distribution<int64_t>
             dist(1, fact(n));
         int num = dist(gen);
         double tAll;
@@ -69,11 +72,10 @@ void experiment() {
             << " ms, perm2=" << tPerm2
             << " ms\n";
     }
-
     out.close();
 }
 
 int main() {
-  experiment();
-  return 0;
+    experiment();
+    return 0;
 }
